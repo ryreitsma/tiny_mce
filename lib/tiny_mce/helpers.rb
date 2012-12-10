@@ -35,7 +35,9 @@ module TinyMCE
 
     # Form a JS include tag for the TinyMCE JS src for inclusion in the <head>
     def include_tiny_mce_js
-      javascript_include_tag (Rails.env.to_s == 'development' ? "tiny_mce/tiny_mce_src" : "tiny_mce/tiny_mce")
+      src = (Rails.env.to_s == 'development' ? "tiny_mce/tiny_mce_src" : "tiny_mce/tiny_mce")
+
+      %Q(<script type="text/javascript" src="/javascripts/#{src}.js"></script>).html_safe
     end
     # Form a JS include tag for the TinyMCE JS src for inclusion in the <head>
     # (only if tiny mce is actually being used)
