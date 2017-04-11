@@ -29,7 +29,7 @@ module TinyMCE
         end
 
         # Run the above proc before each page load this method is declared in
-        before_filter(proc, options)
+        before_action(proc, options)
       end
     end
   end
